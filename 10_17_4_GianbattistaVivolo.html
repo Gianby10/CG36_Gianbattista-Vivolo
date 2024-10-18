@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-2"></head><body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "10px serif";
+// Y axis
+ctx.beginPath();
+ctx.moveTo(100,0);
+ctx.lineTo(100,100);
+ctx.closePath();
+
+ctx.stroke();
+
+// X axis
+
+ctx.beginPath();
+ctx.moveTo(0,50);
+ctx.lineTo(200,50);
+ctx.closePath();
+ctx.stroke();
+
+
+  // Drawing text on canvas: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
+  // Drawing "Y" at coordinates x: 90, y: 10
+  ctx.fillText("Y", 90, 10);
+  // Drawing "20" at coordinates x: 103, y: 10
+  ctx.fillText("20", 103, 10);
+  // Drawing "20" at coordinates x: 187, y: 60
+  ctx.fillText("20", 187, 60);
+  // Drawing "X" at coordinates x: 190, y: 48
+  ctx.fillText("X", 190, 48);
+  // Drawing "-20" at coordinates x: 83, y: 100
+  ctx.fillText("-20", 83, 100);
+  // Drawing "-20" at coordinates x: 0, y: 60
+  ctx.fillText("-20", 0, 60);
+  
+  
+  // 1 unit x = 100 pixels / 20 = 5
+  const xUnit = 100 / 20;
+  // 1 unit y = 50 pixels / 20 = 2.5
+  const yUnit = 50 / 20;
+  
+  // V1 vector [3,2]
+  /*
+  ctx.beginPath();
+  ctx.moveTo(100,50);
+  
+  // V1x = 3*5 = 10, V1y = 2*2.5 = 7.5 
+  ctx.lineTo(100 + 3*yUnit,50 - 2*yUnit);
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.fillText("V1", 115, 45);
+  */
+  
+  // 3 V1
+  
+  ctx.beginPath();
+  ctx.fillStyle = "red";
+  ctx.lineWidth = "1";
+  ctx.arc(100 + 3*3*xUnit, 50 - 2*3*yUnit, 2,0,2*Math.PI);
+
+  ctx.fill();
+  
+  // 5 V1
+
+  ctx.beginPath();
+  ctx.fillStyle = "red";
+  ctx.lineWidth = "1";
+  ctx.arc(100 + 3*5*xUnit, 50 - 2*5*yUnit, 2,0,2*Math.PI);
+ 
+  ctx.fill();
+	 ctx.fillStyle = "black";
+   ctx.fillText("3V1", 145, 32);
+   ctx.fillText("5V1", 180,23);
+
+</script>
+
+
+
+
+
+
+</body></html>
